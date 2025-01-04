@@ -30,7 +30,7 @@ jobs:
 
     - name: Build the Docker image
       run: |
-        docker build . --file Dockerfile --tag my-image-name:$(date +%s)  # Сборка Docker-образа
+        docker build . --file Dockerfile --tag my-image-name # Сборка Docker-образа
 
     - name: Test Docker container locally (GitHub Actions)
       run: |
