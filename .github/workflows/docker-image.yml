@@ -34,7 +34,7 @@ jobs:
 
     - name: Test Docker container locally (GitHub Actions)
       run: |
-        docker run -d -p 5000:5000 my-image-name:$(date +%s)  # Запуск контейнера
+        docker run -d -p 5000:5000 my-image-name  # Запуск контейнера
         sleep 5  # Ждем несколько секунд для запуска
         docker ps  # Проверка запущенных контейнеров
         docker logs $(docker ps -q)  # Просмотр логов контейнера
