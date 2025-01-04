@@ -1,6 +1,5 @@
 name: Docker Image CI
 
-# События, при которых workflow будет запускаться
 on:
   push:
     branches:
@@ -30,6 +29,6 @@ jobs:
 
     - name: Build the Docker image
       run: |
-        docker build . --file Dockerfile --tag my-image-name # Сборка Docker-образа
-
-
+        IMAGE_TAG="my-image-name:${{ github.sha }}"  # Уникальный тег для образа
+        docker build . --file Dockerfile --tag $IMAGE_TAG  # Сборка Docker-образа
+        docker tag $IMAGE_TAG my-image-name:latest  # Также помечаем как latest
