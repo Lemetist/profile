@@ -8,3 +8,4 @@ services:
     image: my-image-name
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt:ro
+    restart: on-failure
