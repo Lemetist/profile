@@ -32,37 +32,42 @@
 }
 
 /* General Styles */
-html,
-body {
-  font-family: 'Raleway', sans-serif;
-  margin: auto;
-  color: var(--main-txt-color);
-  text-align: center;
-  background: var(--main-bg-color);
-  max-width: 100%;
+html {
+  height: 100%;
 }
 
 body {
+  font-family: 'Raleway', sans-serif;
+  margin: 0;
+  color: var(--main-txt-color);
+  text-align: center;
+  background: url('../images/bg.jpg') center / cover no-repeat fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  margin: 0;
-  background: url('../images/bg.jpg') center / cover no-repeat fixed;
+  min-height: 100vh;
 }
 
+/* Links */
 a {
-  color: var(--main-txt-color);
+  color: #ffffff; /* Белый цвет для ссылки */
   text-decoration: none;
   transition: color 0.3s;
 }
 
-a:hover {
-  color: var(--hover-bg-color);
+a:visited,
+a:active,
+a:focus {
+  color: #ffffff; /* Белый цвет для всех состояний ссылки */
 }
+
+a:hover {
+  color: var(--hover-bg-color); /* Цвет при наведении */
+}
+
 .play {
-  color: var(--main-txt-color);
+  color: #ffffff; /* Белый цвет для класса play */
   text-decoration: none;
   transition: color 0.3s;
 }
@@ -95,18 +100,20 @@ a:hover {
   max-width: var(--main-img-size);
   border-radius: 50%;
 }
+
+/* Hidden */
 .hidden {
   display: none !important;
 }
 
+/* Biography Text */
 .bio-text {
-  /* Текст биографии */
-  font-size: 20px; /* Размер шрифта */
-  opacity: 0; /* Прозрачность по умолчанию */
-  width: 60%; /* Ширина текста */
-  margin-bottom: 15px !important; /* Отступ снизу */
-  margin: auto; /* Центрирование */
-  padding: 10px; /* Внутренний отступ */
+  font-size: 20px;
+  opacity: 0;
+  width: 60%;
+  margin-bottom: 15px !important;
+  margin: auto;
+  padding: 10px;
 }
 
 /* Responsive Design */
@@ -124,3 +131,43 @@ a:hover {
   }
 }
 
+/* For small screens */
+@media screen and (max-width: 500px) {
+  :root {
+    --main-padding: 10px;
+    --main-margin: 5px;
+    --main-img-size: 100px;
+    --main-bio-size: 150px;
+    --main-border-radius: 3px;
+    --padding-big: 15px;
+  }
+
+  body {
+    padding: var(--main-padding);
+  }
+
+  .grid-container {
+    grid-template-columns: 1fr;
+    gap: var(--main-padding);
+  }
+
+  .grid-item {
+    width: 100%;
+    padding: var(--padding-big);
+  }
+
+  .profile img {
+    max-width: 70%;
+    margin-bottom: 10px;
+  }
+
+  .bio-text {
+    font-size: 16px;
+    width: 90%;
+    padding: 5px;
+  }
+
+  a {
+    font-size: 14px;
+  }
+}
